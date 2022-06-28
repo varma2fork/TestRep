@@ -6,14 +6,10 @@ class Solution {
         HashMap<Integer,Integer> count = new HashMap<>();
         
         for(int i=0;i<nums.length;i++) {
-            count.put(nums[i], count.getOrDefault(nums[i],0) + 1);
-        }
-        
-        for(Integer n: count.values()) {
-            
-            if(n >= 2) {
-               return true;
+            if(count.containsKey(nums[i])) {
+                return true;
             }
+            count.put(nums[i], count.getOrDefault(nums[i],0) + 1);
         }
         
         return exists;
